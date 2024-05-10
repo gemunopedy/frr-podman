@@ -1,0 +1,21 @@
+version: '3'
+services:
+  frr1:
+    networks:
+      net1_10:
+        ipv4_address: 172.16.10.10
+
+  frr4:
+    networks:
+      net4_20:
+        ipv4_address: 172.16.20.40
+
+  frr10:
+    networks:
+      net10:
+        ipv4_address: 10.0.0.100
+
+  frr20:
+    networks:
+      net20:
+        ipv4_address: 10.0.1.200
