@@ -1,0 +1,147 @@
+version: '3'
+services:
+  frr1:
+    image: frr-tcpdump
+    container_name: frr1
+    hostname: frr1
+    privileged: true
+    volumes:
+       - frr1:/etc/frr
+    networks:
+      net1_2:
+        ipv4_address: 192.168.112.10
+    command: /bin/bash -c "/usr/lib/frr/docker-start"
+
+  frr2:
+    image: frr-tcpdump
+    container_name: frr2
+    hostname: frr2
+    privileged: true
+    volumes:
+       - frr2:/etc/frr
+    networks:
+      net2_3:
+        ipv4_address: 192.168.123.20
+    command: /bin/bash -c "/usr/lib/frr/docker-start"
+
+  frr3:
+    image: frr-tcpdump
+    container_name: frr3
+    hostname: frr3
+    privileged: true
+    volumes:
+       - frr3:/etc/frr
+    networks:
+      net3_4:
+        ipv4_address: 192.168.134.30
+    command: /bin/bash -c "/usr/lib/frr/docker-start"
+
+  frr4:
+    image: frr-tcpdump
+    container_name: frr4
+    hostname: frr4
+    privileged: true
+    volumes:
+       - frr4:/etc/frr
+    networks:
+      net3_4:
+        ipv4_address: 192.168.134.40
+    command: /bin/bash -c "/usr/lib/frr/docker-start"
+
+  frr10:
+    image: frr-tcpdump
+    container_name: frr10
+    hostname: frr10
+    privileged: true
+    volumes:
+       - frr10:/etc/frr
+    networks:
+      net1_10:
+        ipv4_address: 172.16.10.100
+    command: /bin/bash -c "/usr/lib/frr/docker-start"
+
+  frr20:
+    image: frr-tcpdump
+    container_name: frr20
+    hostname: frr20
+    privileged: true
+    volumes:
+       - frr20:/etc/frr
+    networks:
+      net4_20:
+        ipv4_address: 172.16.20.200
+    command: /bin/bash -c "/usr/lib/frr/docker-start"
+
+  alpine1:
+    image: alpine
+    container_name: alpine1
+    tty: true
+    networks:
+      net10:
+        ipv4_address: 10.0.0.250
+
+  alpine2:
+    image: alpine
+    container_name: alpine2
+    tty: true
+    networks:
+      net20:
+        ipv4_address: 10.0.1.250
+
+networks:
+  net1_2:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.112.0/24
+
+  net1_10:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.10.0/24
+
+  net2_3:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.123.0/24
+
+  net3_4:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.134.0/24
+
+  net4_20:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.20.0/24
+
+  net10:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/24
+
+  net20:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.1.0/24
+
+volumes:
+  frr1:
+  frr2:
+  frr3:
+  frr4:
+  frr10:
+  frr20:
