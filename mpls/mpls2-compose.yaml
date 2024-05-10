@@ -5,6 +5,16 @@ services:
       net1_10:
         ipv4_address: 172.16.10.10
 
+  frr2:
+    networks:
+      net1_2:
+        ipv4_address: 192.168.112.20
+
+  frr3:
+    networks:
+      net2_3:
+        ipv4_address: 192.168.123.30
+
   frr4:
     networks:
       net4_20:
