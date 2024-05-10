@@ -1,2 +1,4 @@
-# frr-podman
-For study SRv6
+# mpls
+```
+docker-compose -f mpls1-compose.yaml -f mpls2-compose.yaml
+```
